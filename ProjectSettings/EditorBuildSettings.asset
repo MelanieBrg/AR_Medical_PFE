@@ -32,4 +32,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/8_Spinal_needle.unity
     guid: d6566d83dbd2246c08e9b6c6802d99c4
+  - enabled: 1
+    path: Assets/Scenes/9_EMLA_cream.unity
+    guid: 5c49fd23106fa4e5b86634683c40e307
+  - enabled: 1
+    path: Assets/Scenes/10_tubes_polypropylene.unity
+    guid: bbf17c7a60a9443679d98ff71a667091
+  - enabled: 1
+    path: Assets/Scenes/11_syringes_polypropylene.unity
+    guid: 3d3414951c8394b0996c009e407461af
+  - enabled: 1
+    path: Assets/Scenes/12_chlorhexidine.unity
+    guid: bd89854c22215425caac4aa6f802fb92
+  - enabled: 1
+    path: Assets/Scenes/13_xylocaine.unity
+    guid: d9db59f6a2da6407e8a34bb8a17e8a42
   m_configObjects: {}
