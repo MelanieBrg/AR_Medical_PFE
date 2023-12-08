@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/13_xylocaine.unity
     guid: d9db59f6a2da6407e8a34bb8a17e8a42
+  - enabled: 1
+    path: Assets/Scenes/14_Body_Discovery.unity
+    guid: 44274a9fb728541308d1f4f1ba07e53e
   m_configObjects: {}
