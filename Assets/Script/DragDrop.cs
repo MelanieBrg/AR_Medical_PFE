@@ -1,38 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+
 public class DragDrop : MonoBehaviour
 {
     Vector3 offset;
     public string destinationTag = "DropArea1";
- 
+
+    bool isDragging = false;
+
     void OnMouseDown()
     {
-        offset = transform.position - MouseWorldPosition();
-        transform.GetComponent<Collider>().enabled = false;
+        if (Input.GetMouseButtonDown(0)) // Bouton gauche de la souris
+        {
+            offset = transform.position - MouseWorldPosition();
+            transform.GetComponent<Collider>().enabled = false;
+            isDragging = true;
+        }
     }
- 
-    void OnMouseDrag()
+
+    void FixedUpdate()
     {
-        transform.position = MouseWorldPosition() + offset;
+        if (isDragging)
+        {
+            transform.position = MouseWorldPosition() + offset;
+        }
     }
- 
+
     void OnMouseUp()
     {
-        var rayOrigin = Camera.main.transform.position;
-        var rayDirection = MouseWorldPosition() - Camera.main.transform.position;
-        RaycastHit hitInfo;
-        if(Physics.Raycast(rayOrigin, rayDirection, out hitInfo))
+        if (isDragging)
         {
-            if(hitInfo.transform.tag == destinationTag)
+            var rayOrigin = Camera.main.transform.position;
+            var rayDirection = MouseWorldPosition() - Camera.main.transform.position;
+            RaycastHit hitInfo;
+            if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo))
             {
-                transform.position = hitInfo.transform.position;
+                if (hitInfo.transform.tag == destinationTag)
+                {
+                    transform.position = hitInfo.transform.position;
+                }
             }
+            transform.GetComponent<Collider>().enabled = true;
+            isDragging = false;
         }
-        transform.GetComponent<Collider>().enabled = true;
     }
- 
+
     Vector3 MouseWorldPosition()
     {
         var mouseScreenPos = Input.mousePosition;
